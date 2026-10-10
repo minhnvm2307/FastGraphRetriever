@@ -1,0 +1,235 @@
+{
+ "doc_title": "Ca 3 — Tái khám thận học",
+ "entities": [
+  {
+   "id": "p1",
+   "name_en": "Patient (case 3)",
+   "name_vi": "Bệnh nhân (ca 3)",
+   "type": "Patient"
+  },
+  {
+   "id": "e1",
+   "name_en": "chronic kidney disease stage 3",
+   "name_vi": "bệnh thận mạn giai đoạn 3",
+   "type": "Condition"
+  },
+  {
+   "id": "e2",
+   "name_en": "type 2 diabetes",
+   "name_vi": "đái tháo đường type 2",
+   "type": "Condition"
+  },
+  {
+   "id": "e3",
+   "name_en": "hypertension",
+   "name_vi": "tăng huyết áp",
+   "type": "Condition"
+  },
+  {
+   "id": "e4",
+   "name_en": "lower limb edema",
+   "name_vi": "phù hai chi dưới",
+   "type": "Symptom"
+  },
+  {
+   "id": "e5",
+   "name_en": "nocturia",
+   "name_vi": "tiểu đêm",
+   "type": "Symptom"
+  },
+  {
+   "id": "e6",
+   "name_en": "losartan",
+   "name_vi": "losartan",
+   "type": "Drug"
+  },
+  {
+   "id": "e7",
+   "name_en": "insulin glargine",
+   "name_vi": "insulin glargine",
+   "type": "Drug"
+  },
+  {
+   "id": "c1",
+   "name_en": "angiotensin II receptor blocker",
+   "name_vi": "thuốc chẹn thụ thể angiotensin II",
+   "type": "DrugClass"
+  },
+  {
+   "id": "l1",
+   "name_en": "creatinine result (case 3)",
+   "name_vi": "kết quả creatinine (ca 3)",
+   "type": "LabResult"
+  },
+  {
+   "id": "t1",
+   "name_en": "serum creatinine",
+   "name_vi": "creatinine",
+   "type": "LabTest"
+  },
+  {
+   "id": "v1",
+   "name_en": "168 µmol/L",
+   "name_vi": "168 µmol/L",
+   "type": "Value"
+  },
+  {
+   "id": "f1",
+   "name_en": "elevated",
+   "name_vi": "tăng",
+   "type": "Finding"
+  },
+  {
+   "id": "l2",
+   "name_en": "eGFR result (case 3)",
+   "name_vi": "kết quả eGFR (ca 3)",
+   "type": "LabResult"
+  },
+  {
+   "id": "t2",
+   "name_en": "estimated glomerular filtration rate",
+   "name_vi": "eGFR",
+   "type": "LabTest"
+  },
+  {
+   "id": "v2",
+   "name_en": "38 mL/min/1.73 m²",
+   "name_vi": "38 mL/phút/1,73 m²",
+   "type": "Value"
+  },
+  {
+   "id": "f2",
+   "name_en": "decreased",
+   "name_vi": "giảm",
+   "type": "Finding"
+  }
+ ],
+ "triples": [
+  {
+   "h": "p1",
+   "r": "medical.patient.symptom",
+   "t": "e4",
+   "assertion": "present",
+   "evidence_vi": "phù nhẹ hai chi dưới"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.symptom",
+   "t": "e5",
+   "assertion": "present",
+   "evidence_vi": "tiểu đêm"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.history_of",
+   "t": "e2",
+   "assertion": "historical",
+   "evidence_vi": "đái tháo đường type 2 12 năm"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.history_of",
+   "t": "e3",
+   "assertion": "historical",
+   "evidence_vi": "tăng huyết áp 8 năm"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.diagnosis",
+   "t": "e1",
+   "assertion": "present",
+   "evidence_vi": "bệnh thận mạn giai đoạn 3 do đái tháo đường"
+  },
+  {
+   "h": "e2",
+   "r": "medical.condition.complication",
+   "t": "e1",
+   "assertion": "present",
+   "evidence_vi": "bệnh thận mạn giai đoạn 3 là biến chứng của đái tháo đường type 2"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.medication",
+   "t": "e6",
+   "assertion": "present",
+   "evidence_vi": "losartan 50 mg mỗi ngày"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.medication",
+   "t": "e7",
+   "assertion": "present",
+   "evidence_vi": "insulin glargine 14 đơn vị buổi tối"
+  },
+  {
+   "h": "e1",
+   "r": "medical.condition.treated_with",
+   "t": "e6",
+   "assertion": "present",
+   "evidence_vi": "losartan 50 mg mỗi ngày để bảo vệ thận"
+  },
+  {
+   "h": "e6",
+   "r": "medical.drug.drug_class",
+   "t": "c1",
+   "assertion": "present",
+   "evidence_vi": "Losartan thuộc nhóm thuốc chẹn thụ thể angiotensin II"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.lab_result",
+   "t": "l1",
+   "assertion": "present",
+   "evidence_vi": "Creatinine 168 µmol/L (tăng)"
+  },
+  {
+   "h": "l1",
+   "r": "medical.lab_result.test",
+   "t": "t1",
+   "assertion": "present",
+   "evidence_vi": "Creatinine 168 µmol/L"
+  },
+  {
+   "h": "l1",
+   "r": "medical.lab_result.value",
+   "t": "v1",
+   "assertion": "present",
+   "evidence_vi": "168 µmol/L"
+  },
+  {
+   "h": "l1",
+   "r": "medical.lab_result.interpretation",
+   "t": "f1",
+   "assertion": "present",
+   "evidence_vi": "168 µmol/L (tăng)"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.lab_result",
+   "t": "l2",
+   "assertion": "present",
+   "evidence_vi": "eGFR 38 mL/phút/1,73 m² (giảm)"
+  },
+  {
+   "h": "l2",
+   "r": "medical.lab_result.test",
+   "t": "t2",
+   "assertion": "present",
+   "evidence_vi": "eGFR 38 mL/phút/1,73 m²"
+  },
+  {
+   "h": "l2",
+   "r": "medical.lab_result.value",
+   "t": "v2",
+   "assertion": "present",
+   "evidence_vi": "38 mL/phút/1,73 m²"
+  },
+  {
+   "h": "l2",
+   "r": "medical.lab_result.interpretation",
+   "t": "f2",
+   "assertion": "present",
+   "evidence_vi": "38 mL/phút/1,73 m² (giảm)"
+  }
+ ]
+}

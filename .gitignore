@@ -218,3 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- FastGraphRetriever ---
+# data bundle and runtime state live outside git (S3 bundle, see docs/DATA.md)
+data/
+node_modules/
+dist/
+web/test-results/
+# the Python template ignores lib/; keep frontend source folders named lib
+!web/src/lib/

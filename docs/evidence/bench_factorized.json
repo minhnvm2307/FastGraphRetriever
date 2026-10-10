@@ -1,0 +1,19 @@
+{
+ "questions": 30,
+ "threads": 2,
+ "triples_p50": 1782,
+ "triples_max": 29367,
+ "factorised_vs_original_max_abs_diff": 1.52587890625e-05,
+ "factorised_top500_same_set": "29/30",
+ "factorised_vs_golden_top50_same_order": "29/30",
+ "factorised_vs_golden_max_abs_diff_top50": 2.09808349609375e-05,
+ "orig_pass_ms_p50": 116.7,
+ "orig_pass_ms_max": 2020.5,
+ "prep_ms_p50": 41.1,
+ "prep_ms_max": 966.1,
+ "fact_pass_ms_p50": 11.8,
+ "fact_pass_ms_max": 418.3,
+ "gte_question_ms_p50": 606.7,
+ "gte_question_ms_max": 1270.2,
+ "gte_cpu_vs_bundle_q_max_abs_diff": 6.0558319091796875e-05
+}

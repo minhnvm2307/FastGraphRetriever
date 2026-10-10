@@ -1,0 +1,242 @@
+{
+ "doc_title": "Ca 1 — Khám ngoại trú nội tiết",
+ "entities": [
+  {
+   "id": "p1",
+   "name_en": "Patient (case 1)",
+   "name_vi": "Bệnh nhân (ca 1)",
+   "type": "Patient"
+  },
+  {
+   "id": "e1",
+   "name_en": "hypertension",
+   "name_vi": "tăng huyết áp",
+   "type": "Condition"
+  },
+  {
+   "id": "e2",
+   "name_en": "type 2 diabetes",
+   "name_vi": "đái tháo đường type 2",
+   "type": "Condition"
+  },
+  {
+   "id": "e3",
+   "name_en": "myocardial infarction",
+   "name_vi": "nhồi máu cơ tim",
+   "type": "Condition"
+  },
+  {
+   "id": "e4",
+   "name_en": "headache",
+   "name_vi": "đau đầu",
+   "type": "Symptom"
+  },
+  {
+   "id": "e5",
+   "name_en": "dizziness",
+   "name_vi": "chóng mặt",
+   "type": "Symptom"
+  },
+  {
+   "id": "e6",
+   "name_en": "chest pain",
+   "name_vi": "đau ngực",
+   "type": "Symptom"
+  },
+  {
+   "id": "e7",
+   "name_en": "dyspnea",
+   "name_vi": "khó thở",
+   "type": "Symptom"
+  },
+  {
+   "id": "e8",
+   "name_en": "amlodipine",
+   "name_vi": "amlodipine",
+   "type": "Drug"
+  },
+  {
+   "id": "e9",
+   "name_en": "metformin",
+   "name_vi": "metformin",
+   "type": "Drug"
+  },
+  {
+   "id": "l1",
+   "name_en": "HbA1c result (case 1)",
+   "name_vi": "kết quả HbA1c (ca 1)",
+   "type": "LabResult"
+  },
+  {
+   "id": "t1",
+   "name_en": "HbA1c",
+   "name_vi": "HbA1c",
+   "type": "LabTest"
+  },
+  {
+   "id": "v1",
+   "name_en": "8.1 %",
+   "name_vi": "8,1%",
+   "type": "Value"
+  },
+  {
+   "id": "f1",
+   "name_en": "elevated",
+   "name_vi": "tăng",
+   "type": "Finding"
+  },
+  {
+   "id": "l2",
+   "name_en": "fasting glucose result (case 1)",
+   "name_vi": "kết quả glucose lúc đói (ca 1)",
+   "type": "LabResult"
+  },
+  {
+   "id": "t2",
+   "name_en": "fasting blood glucose",
+   "name_vi": "glucose máu lúc đói",
+   "type": "LabTest"
+  },
+  {
+   "id": "v2",
+   "name_en": "9.2 mmol/L",
+   "name_vi": "9,2 mmol/L",
+   "type": "Value"
+  }
+ ],
+ "triples": [
+  {
+   "h": "p1",
+   "r": "medical.patient.symptom",
+   "t": "e4",
+   "assertion": "present",
+   "evidence_vi": "đau đầu vùng chẩm"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.symptom",
+   "t": "e5",
+   "assertion": "present",
+   "evidence_vi": "chóng mặt khi đứng dậy"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.denied_symptom",
+   "t": "e6",
+   "assertion": "negated",
+   "evidence_vi": "Không đau ngực"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.denied_symptom",
+   "t": "e7",
+   "assertion": "negated",
+   "evidence_vi": "Không khó thở"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.history_of",
+   "t": "e1",
+   "assertion": "historical",
+   "evidence_vi": "tăng huyết áp 5 năm"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.family_history",
+   "t": "e3",
+   "assertion": "family",
+   "evidence_vi": "Bố bị nhồi máu cơ tim"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.diagnosis",
+   "t": "e2",
+   "assertion": "present",
+   "evidence_vi": "đái tháo đường type 2 mới phát hiện"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.diagnosis",
+   "t": "e1",
+   "assertion": "present",
+   "evidence_vi": "tăng huyết áp chưa kiểm soát"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.medication",
+   "t": "e8",
+   "assertion": "present",
+   "evidence_vi": "tiếp tục amlodipine 5 mg"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.medication",
+   "t": "e9",
+   "assertion": "present",
+   "evidence_vi": "bắt đầu metformin 500 mg"
+  },
+  {
+   "h": "e1",
+   "r": "medical.condition.treated_with",
+   "t": "e8",
+   "assertion": "present",
+   "evidence_vi": "điều trị tăng huyết áp bằng amlodipine"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.lab_result",
+   "t": "l1",
+   "assertion": "present",
+   "evidence_vi": "HbA1c 8,1% (tăng)"
+  },
+  {
+   "h": "l1",
+   "r": "medical.lab_result.test",
+   "t": "t1",
+   "assertion": "present",
+   "evidence_vi": "HbA1c 8,1%"
+  },
+  {
+   "h": "l1",
+   "r": "medical.lab_result.value",
+   "t": "v1",
+   "assertion": "present",
+   "evidence_vi": "HbA1c 8,1%"
+  },
+  {
+   "h": "l1",
+   "r": "medical.lab_result.interpretation",
+   "t": "f1",
+   "assertion": "present",
+   "evidence_vi": "HbA1c 8,1% (tăng)"
+  },
+  {
+   "h": "p1",
+   "r": "medical.patient.lab_result",
+   "t": "l2",
+   "assertion": "present",
+   "evidence_vi": "Glucose máu lúc đói 9,2 mmol/L (tăng)"
+  },
+  {
+   "h": "l2",
+   "r": "medical.lab_result.test",
+   "t": "t2",
+   "assertion": "present",
+   "evidence_vi": "Glucose máu lúc đói"
+  },
+  {
+   "h": "l2",
+   "r": "medical.lab_result.value",
+   "t": "v2",
+   "assertion": "present",
+   "evidence_vi": "9,2 mmol/L"
+  },
+  {
+   "h": "l2",
+   "r": "medical.lab_result.interpretation",
+   "t": "f1",
+   "assertion": "present",
+   "evidence_vi": "9,2 mmol/L (tăng)"
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "name": "fastgraphretriever-bundle",
+ "version": "v1",
+ "created": "2026-10-11 04:09",
+ "source": {
+  "repo": "/home/minhnv/Lab/SubgraphRAG",
+  "dataset": "retrieve/data_files/grailqa_oda",
+  "checkpoint": "retrieve/webqsp_wl_effective_num_Oct05-15:23:05",
+  "oda": "huggingface.co/datasets/CCaccept/Subgraph hop_2_Freebase + KGdata/QAdata/graliqa.json"
+ },
+ "stats": {
+  "questions": 897,
+  "entities": 935050,
+  "unique_entity_names": 614324,
+  "relations": 4570,
+  "triples": 1806486,
+  "triple_instances": 3215294,
+  "degree_p50": 1,
+  "degree_p99": 26,
+  "degree_max": 6092,
+  "top_degree": [
+   [
+    "Human genome",
+    "m.0bsdc",
+    6092
+   ],
+   [
+    "Video Game Version",
+    "m.02hk9z5",
+    5385
+   ],
+   [
+    "cvg.game_version",
+    "cvg.game_version",
+    5346
+   ],
+   [
+    "PlayStation 3",
+    "m.067gh",
+    4434
+   ],
+   [
+    "PlayStation 2",
+    "m.066kp",
+    4417
+   ],
+   [
+    "Wii",
+    "m.026kds",
+    4395
+   ],
+   [
+    "biology.gene",
+    "biology.gene",
+    4118
+   ],
+   [
+    "Gene",
+    "m.02kl67z",
+    4118
+   ],
+   [
+    "Xbox 360",
+    "m.02plp2",
+    4066
+   ],
+   [
+    "Genomic Locus",
+    "m.02kl69n",
+    4064
+   ]
+  ]
+ },
+ "files": {
+  "kg/entities.tsv.gz": {
+   "bytes": 18134372,
+   "sha256": "68659f0ff02c0ddc35747371cb3293fa0d887baa61e5570ebeb335709b6fb524"
+  },
+  "kg/relations.tsv.gz": {
+   "bytes": 52138,
+   "sha256": "85f89c59cd38f54dec1500ee6e47f2238a06c99b3a3bd19ce60560e0d556916b"
+  },
+  "kg/triples.tsv.gz": {
+   "bytes": 5649821,
+   "sha256": "680f7c05fa42d7b72bdcc568b36ffc510cc08479d66324dee3d1827b1ac1d327"
+  },
+  "emb/ent.f16.npy": {
+   "bytes": 1258135680,
+   "sha256": "cd6d3252f1561bfec80b801c8f2c0fab71e5f3b46bdfc83be4320e26e02d7798"
+  },
+  "emb/q.f16.npy": {
+   "bytes": 1837184,
+   "sha256": "2045df201d3ce92989c533bae9116752995487f3865e63b2b7beb78d04d00b7c"
+  },
+  "emb/rel.f16.npy": {
+   "bytes": 9359488,
+   "sha256": "27a8fa25468eae9f973f5e3284085b6d829c903bdf1010a1ebe5fb71afc83445"
+  },
+  "golden/adr_grailqa_oda_adr.pth": {
+   "bytes": 18645840,
+   "sha256": "4d4819740b6c0b4dcab92551fd530acd0cd7c44fa8b65e5dd1648a2609879eb5"
+  },
+  "golden/adr_grailqa_oda_adr_aer.pth": {
+   "bytes": 18620256,
+   "sha256": "b884fe02c4a78f297dd74ac863abf854e9151c1416066d976bb65383e7df3ffb"
+  },
+  "golden/adr_grailqa_oda_aer.pth": {
+   "bytes": 18609872,
+   "sha256": "6f383658b4ca6520dc5dc4eee8eb2a52c895c7af707879f7c80e09a4b8674112"
+  },
+  "golden/adr_grailqa_oda_base.pth": {
+   "bytes": 18631188,
+   "sha256": "b7f8e26f792062a12228addac9fbd9d1136b11c822871141bbd04cce93f7bb03"
+  },
+  "benchmark/local2eid.npz": {
+   "bytes": 3816064,
+   "sha256": "96701e779839dc0024b4691b176a1d39c830340038609a9f2e5c033994b46ca2"
+  },
+  "benchmark/questions.jsonl": {
+   "bytes": 515306,
+   "sha256": "8a5eec0c5171722fbca0e1f6d2d9a8e9d27a2717b16309e7c96064ff7265387f"
+  },
+  "benchmark/test.pkl": {
+   "bytes": 78954156,
+   "sha256": "20c6c830aad70621eae92cb63e03576653d7c59e83997a1b8f5cc9a107880f16"
+  },
+  "models/wl_effective_num_s42/config.json": {
+   "bytes": 1169,
+   "sha256": "2ecbc190853bd2623486e1961eb8a2dca8efdcba8aeb3c86a9e333eb61e5a25b"
+  },
+  "models/wl_effective_num_s42/cpt.pth": {
+   "bytes": 16948968,
+   "sha256": "c838651f368c08be190d52c7fe43e39cf06eefe8a9ec5d6edb37643c6ad1ece0"
+  }
+ }
+}

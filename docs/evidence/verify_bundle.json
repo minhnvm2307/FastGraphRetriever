@@ -1,0 +1,43 @@
+{
+ "base": {
+  "top50_jaccard_mean": 1.0,
+  "top50_jaccard_min": 1.0,
+  "top200_jaccard_mean": 1.0,
+  "max_abs_score_diff": 2.288818359375e-05,
+  "exact_top50_order": "29/30"
+ },
+ "adr": {
+  "top50_jaccard_mean": 1.0,
+  "top50_jaccard_min": 1.0,
+  "top200_jaccard_mean": 1.0,
+  "max_abs_score_diff": 2.288818359375e-05,
+  "exact_top50_order": "29/30"
+ },
+ "aer": {
+  "top50_jaccard_mean": 1.0,
+  "top50_jaccard_min": 1.0,
+  "top200_jaccard_mean": 1.0,
+  "max_abs_score_diff": 6.4373016357421875e-06,
+  "exact_top50_order": "29/30"
+ },
+ "adr_aer": {
+  "top50_jaccard_mean": 1.0,
+  "top50_jaccard_min": 1.0,
+  "top200_jaccard_mean": 1.0,
+  "max_abs_score_diff": 6.4373016357421875e-06,
+  "exact_top50_order": "29/30"
+ },
+ "latency_cpu": {
+  "threads": 2,
+  "questions": 30,
+  "triples_p50": 1782,
+  "triples_max": 29367,
+  "rt_features_ms_p50": 9.1,
+  "one_pass_ms_p50": 386.1,
+  "one_pass_ms_max": 4764.4,
+  "all_modes_ms_p50": 873.3,
+  "distinct_passes_p50": 2,
+  "distinct_passes_max": 6,
+  "ms_per_1k_triples_per_pass": 146.1
+ }
+}
