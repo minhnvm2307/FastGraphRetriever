@@ -219,11 +219,6 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# --- FastGraphRetriever ---
-# data bundle and runtime state live outside git (S3 bundle, see docs/DATA.md)
+# --- Local GTSQA demo data and model caches ---
 data/
-node_modules/
-dist/
-web/test-results/
-# the Python template ignores lib/; keep frontend source folders named lib
-!web/src/lib/
+models/bge_adapter/
