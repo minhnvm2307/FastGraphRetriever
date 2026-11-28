@@ -47,8 +47,8 @@ def render_graph(
             shape="dot", size=size,
             color={"background": color, "border": border,
                    "highlight": {"background": "#ffdd84", "border": "#cf8a18"}},
-            borderWidth=2, font={"face": "Arial", "size": 18, "color": "#24334c",
-                                 "strokeWidth": 3, "strokeColor": "#ffffff"},
+            borderWidth=2, font={"face": "Arial", "size": 18, "color": "#eaf3ff",
+                                 "strokeWidth": 3, "strokeColor": "#0b1729"},
         )
     for triple in triples:
         index = triple["index"]
@@ -66,12 +66,12 @@ def render_graph(
             title=detail, relation=relation.replace("<", "‹").replace(">", "›"),
             rank=str(rank),
             score=f"{float(score):.4f}" if score is not None else "—",
-            color={"color": "#ed8b3c" if is_path else "#aab8c8",
+            color={"color": "#ed8b3c" if is_path else "#67809f",
                    "highlight": "#d6611b", "hover": "#d6611b"},
             width=4 if is_selected else 3 if is_path else 1.4,
             arrows={"to": {"enabled": True, "scaleFactor": 0.55}},
-            font={"face": "Arial", "size": 13, "color": "#596b80",
-                  "strokeWidth": 4, "strokeColor": "#ffffff", "align": "middle"},
+            font={"face": "Arial", "size": 13, "color": "#c9d9ed",
+                  "strokeWidth": 4, "strokeColor": "#0b1729", "align": "middle"},
             smooth={"enabled": True, "type": "dynamic", "roundness": 0.12},
         )
     network.set_options('''{
@@ -80,7 +80,7 @@ def render_graph(
         "navigationButtons": false, "keyboard": true,
         "tooltipDelay": 140, "zoomView": true, "dragView": true},
       "nodes": {"chosen": true, "shadow": {"enabled": true,
-        "color": "rgba(42, 66, 94, .13)", "size": 8, "x": 0, "y": 3}},
+        "color": "rgba(0, 0, 0, .3)", "size": 8, "x": 0, "y": 3}},
       "edges": {"selectionWidth": 2, "hoverWidth": 1.6,
         "smooth": {"enabled": true, "type": "dynamic"}},
       "physics": {"enabled": true,
@@ -90,21 +90,23 @@ def render_graph(
     }''')
     page = network.generate_html()
     css = """<style>
-      body {margin:0; background:#f7f9fc; font-family:Arial,sans-serif; color:#26364c}
-      #mynetwork {border:1px solid #dce4ee; border-radius:0 0 12px 12px;
-        background:radial-gradient(circle at 50% 45%, #ffffff 0%, #f7f9fc 72%)}
+      body {margin:0; background:#0b1628; font-family:Arial,sans-serif; color:#eaf3ff}
+      #mynetwork {border:1px solid #30415d; border-radius:0 0 12px 12px;
+        background:radial-gradient(circle at 50% 42%, #172a43 0%, #0b1628 78%)}
       .graph-tools {display:flex; flex-wrap:wrap; align-items:center; gap:9px;
-        padding:10px 12px; border:1px solid #dce4ee; border-bottom:0;
-        border-radius:12px 12px 0 0; background:#fff}
+        padding:10px 12px; border:1px solid #30415d; border-bottom:0;
+        border-radius:12px 12px 0 0; background:#14243b}
       .graph-tools input[type=search] {flex:1; min-width:150px; padding:8px 10px;
-        border:1px solid #cfdae6; border-radius:7px; font:inherit}
-      .graph-tools button {padding:8px 11px; border:1px solid #cfdae6;
-        border-radius:7px; background:#f7f9fc; color:#26364c; cursor:pointer}
-      .graph-tools button:hover {background:#eaf1f8}
-      .graph-tools label {font-size:12px; white-space:nowrap; color:#53657d}
+        border:1px solid #38506f; border-radius:7px; background:#0c1a30;
+        color:#eaf3ff; font:inherit}
+      .graph-tools input::placeholder {color:#8297b2}
+      .graph-tools button {padding:8px 11px; border:1px solid #38506f;
+        border-radius:7px; background:#1c304a; color:#eaf3ff; cursor:pointer}
+      .graph-tools button:hover {background:#294664}
+      .graph-tools label {font-size:12px; white-space:nowrap; color:#b1c3da}
       #graph-detail {min-height:18px; padding:8px 13px; font-size:12px;
-        color:#53657d; border:1px solid #dce4ee; border-top:0;
-        border-radius:0 0 10px 10px; background:#fff}
+        color:#b1c3da; border:1px solid #30415d; border-top:0;
+        border-radius:0 0 10px 10px; background:#14243b}
     </style>"""
     toolbar = """<div class="graph-tools">
       <input id="graph-search" type="search" placeholder="Tìm entity trong graph…" aria-label="Tìm entity">

@@ -13,7 +13,7 @@ Show how the RBF retriever in [Beyond Seen Paths](RBF-ACL-paper.pdf) turns a que
 3. Set any integer top-k budget from 1 to 500 (or the candidate count if smaller). Score the full candidate graph, then show exactly the requested number of ranked triples with IDs, heads, relations, tails, and RBF scores.
 4. Select a triple to highlight its best complete path and inspect relation-local step and stop factors. With multiple topic entities, report union and all-seeds score contributions; the highlighted path explains the union term.
 5. Report feature and RBF scoring times separately. On original questions, report answer and annotated-gold-triple recall at the selected budget. Edited questions are exploratory and are not scored against the original answer.
-6. If DeepSeek is configured, offer a separate answer action using the top 30 triples with visible triple-ID citations. Retrieval works without LLM credentials.
+6. If DeepSeek is configured, offer a separate P2h answer action using up to 100 ranked triples and the selected topic entities. Show API latency and token usage. Retrieval works without LLM credentials.
 7. Show live, stage-based progress during model setup, feature encoding, relation-factor computation, RBF path scoring, and ranking. The progress report reflects actual computation boundaries.
 8. Render the evidence graph as an interactive, Neo4j Browser-inspired canvas with visible entity captions, directed and labelled relations, semantic colors for topic/answer/path, zoom, fit, entity search, and click details. Highlight the selected triple's best path, marking any path-only context edge outside top-k.
 

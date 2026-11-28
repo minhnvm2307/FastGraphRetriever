@@ -1,43 +1,53 @@
-"""Optional DeepSeek answer from retrieved, numbered triples."""
+"""DeepSeek P2h answers over ranked RBF evidence."""
+
+from __future__ import annotations
 
 import os
-import re
+from pathlib import Path
 
-import requests
+from .p2h_inference import p2h_inference
+
+DEFAULT_MODEL = "deepseek-flash"
 
 
-def answer_question(question: str, triples: list[dict]) -> tuple[str, list[str]]:
-    api_key = os.getenv("DEEPSEEK_API_KEY")
-    model = os.getenv("DEEPSEEK_MODEL")
-    if not api_key or not model:
-        raise RuntimeError("Set DEEPSEEK_API_KEY and DEEPSEEK_MODEL to enable answers")
-    evidence = "\n".join(
-        f"[{t['id']}] {t['head']} | {t['relation']} | {t['tail']}"
-        for t in triples[:30]
+def load_local_env() -> None:
+    """Load only DeepSeek settings from the ignored project-local .env."""
+    path = Path(__file__).resolve().parents[1] / ".env"
+    if not path.is_file():
+        return
+    for line in path.read_text(encoding="utf-8-sig").splitlines():
+        name, separator, value = line.partition("=")
+        name = name.strip()
+        if separator and name in {"DEEPSEEK_API_KEY", "DEEPSEEK_MODEL"}:
+            os.environ.setdefault(name, value.strip().strip('"\''))
+
+
+load_local_env()
+
+
+def deepseek_ready() -> bool:
+    return bool(os.getenv("DEEPSEEK_API_KEY"))
+
+
+def answer_with_details(
+    question: str, triples: list[dict], topic_entities: list[str],
+    history: list[dict[str, str]] | None = None,
+) -> dict:
+    """Run the supplied P2h format and preserve its timing and usage details."""
+    if not deepseek_ready():
+        raise RuntimeError("Set DEEPSEEK_API_KEY to enable DeepSeek answers")
+    triplets = [(item["head"], item["relation"], item["tail"]) for item in triples]
+    return p2h_inference(
+        triplets=triplets, question=question, topic_entities=topic_entities,
+        model=os.getenv("DEEPSEEK_MODEL", DEFAULT_MODEL),
+        k=min(len(triplets), 100), max_tokens=1024,
+        history=history,
     )
-    response = requests.post(
-        os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com").rstrip("/")
-        + "/chat/completions",
-        headers={"Authorization": f"Bearer {api_key}"},
-        json={
-            "model": model,
-            "messages": [
-                {"role": "system", "content": (
-                    "Answer using only the provided knowledge graph triples. "
-                    "Cite every factual claim with its triple ID, such as [T2]. "
-                    "If the triples do not support an answer, say so."
-                )},
-                {"role": "user", "content": f"Question: {question}\n\nTriples:\n{evidence}"},
-            ],
-            "temperature": 0,
-        },
-        timeout=45,
-    )
-    response.raise_for_status()
-    answer = response.json()["choices"][0]["message"]["content"]
-    allowed = {triple["id"] for triple in triples[:30]}
-    citations = set(re.findall(r"\[(T\d+)\]", answer))
-    warnings = [f"Unknown citation [{item}]" for item in sorted(citations - allowed)]
-    if not citations:
-        warnings.append("No triple citations in the answer")
-    return answer, warnings
+
+
+def answer_question(
+    question: str, triples: list[dict], topic_entities: list[str],
+) -> tuple[str, list[str]]:
+    result = answer_with_details(question, triples, topic_entities)
+    warnings = [f"Đã chạy lượt sửa đáp án ({result['repaired']})."] if result["repaired"] else []
+    return result["response"], warnings
